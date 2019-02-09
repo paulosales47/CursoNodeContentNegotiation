@@ -4,10 +4,31 @@ let opcoes = {
     hostname: 'localhost',
     port: 3004,
     path: '/',
-    headers: {'Accept': 'application/json'}
+    method: 'post',
+    headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/x-www-form-urlencoded'
+    }
 }
 
-http.get(opcoes, function(resposta){
+let body = 'nome=Paulo'
+
+// http.get(opcoes, function(resposta){
+    
+//     let bufferResposta = [];
+
+//     resposta.on('data', function(chunck){
+//         bufferResposta.push(chunck);
+//     })
+
+//     resposta.on('end', function(){
+//         let corpoResponse = Buffer.concat(bufferResposta).toString();
+//         console.log(corpoResponse);
+//     });
+
+// });
+
+let requsicao = http.request(opcoes, function(resposta){
     
     let bufferResposta = [];
 
@@ -21,3 +42,6 @@ http.get(opcoes, function(resposta){
     });
 
 });
+
+requsicao.write(body);
+requsicao.end();

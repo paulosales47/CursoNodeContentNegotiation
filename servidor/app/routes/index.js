@@ -16,4 +16,8 @@ module.exports = function(application){
 		let formulario = req.body;
 		res.send(formulario);
 	});
+
+	application.get('/testeErro', function(req, res){
+		Olá
+	});
 }

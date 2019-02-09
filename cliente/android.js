@@ -39,6 +39,8 @@ let requsicao = http.request(opcoes, function(resposta){
     resposta.on('end', function(){
         let corpoResponse = Buffer.concat(bufferResposta).toString();
         console.log(corpoResponse);
+        console.log(resposta.statusCode);
+        console.log(resposta.statusMessage);
     });
 
 });

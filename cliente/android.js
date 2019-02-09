@@ -7,11 +7,11 @@ let opcoes = {
     method: 'post',
     headers: {
         'Accept': 'application/json',
-        'Content-type': 'application/x-www-form-urlencoded'
+        'Content-type': 'application/json'
     }
 }
 
-let body = 'nome=Paulo'
+let bodyJson = {nome: 'Paulo Henrique Sales Sampaio'}
 
 // http.get(opcoes, function(resposta){
     
@@ -43,5 +43,5 @@ let requsicao = http.request(opcoes, function(resposta){
 
 });
 
-requsicao.write(body);
+requsicao.write(JSON.stringify(bodyJson));
 requsicao.end();
